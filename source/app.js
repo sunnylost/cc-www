@@ -5,15 +5,9 @@ App Interface
 
 
 (function() {
-  var app, express, http, path, routes, search, user;
+  var app, detail, express, http, path, routes, search;
 
   express = require("express");
-
-  routes = require("./routes");
-
-  user = require("./routes/user");
-
-  search = require("./routes/search");
 
   http = require("http");
 
@@ -26,6 +20,11 @@ App Interface
   app.set("views", path.join(__dirname, "views"));
 
   app.set("view engine", "jade");
+
+  app.configure("development", function() {
+    app.use(express.errorHandler());
+    return app.locals.pretty = true;
+  });
 
   app.use(express.favicon());
 
@@ -52,9 +51,15 @@ App Interface
     app.use(express.errorHandler());
   }
 
+  routes = require("./routes");
+
+  detail = require("./routes/detail");
+
+  search = require("./routes/search");
+
   app.get("/", routes.index);
 
-  app.get("/users", user.list);
+  app.get("/detail", detail.list);
 
   app.get("/search", search.index);
 

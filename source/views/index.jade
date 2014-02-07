@@ -1,16 +1,13 @@
-extends layout
+extends base
 
-block content
-    h1= title
-    p Welcome to #{title}
-    a(href='users').
-     Go Users
+block title
+  title 云中信 - #{title}
 
-    br
+block css
+  link(rel='stylesheet', href='/stylesheets/index.css')
 
-    a(href='search').
-     Go search
-
-    br
-
-    img(src='/images/me.png')
+block js
+  script(src='/sea-modules/seajs/seajs/2.1.1/sea.js')
+  script(src='/sea-modules/seajs/seajs-text/1.0.2/seajs-text.js')
+  script(src='/javascripts/common/config.js')
+  script seajs.use('/javascripts/src/app.js')
