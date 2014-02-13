@@ -1,0 +1,59 @@
+.section {
+  background-color: transparent;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+section.container {
+}
+.container {
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.container-in {
+  background-color: orange;
+}
+
+.slider {
+  position: relative;
+
+  .slider-title {
+    position: absolute;
+  }
+
+  .home-slider {
+    width: 400px;
+    min-height: 200px;
+    left: 10%;
+    top: 15%;
+    -vendor-animation-duration: 3s;
+    -vendor-animation-delay: 2s;
+    -vendor-animation-iteration-count: infinite;
+  }
+
+  h2 {
+    font-size: 2.6em;
+    font-weight: bold;
+  }
+  p {
+    padding: 10px 0;
+    color: #777;
+  }
+}
+
+
+// cc-view
+.view-cc-wp {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: -1000px;
+}

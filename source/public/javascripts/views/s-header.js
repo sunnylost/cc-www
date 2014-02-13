@@ -6,19 +6,20 @@
     _ = require('underscore');
     Util = require('../common/util');
     RES = require('../common/res');
-    tpl = require('../../tpl/header.tpl');
+    tpl = require('../../tpl/s-header.tpl');
     ThisView = Backbone.View.extend({
-      id: 'ID-header',
-      className: 'header',
+      id: 'ID-s-header',
+      className: 's-header',
       initialize: function() {
         return this.render();
       },
       events: {
-        'click .logo': 'goHome'
+        'click .logo': 'goHome',
+        'click .go-back': 'back'
       },
       render: function() {
         var html;
-        console.log('render header...');
+        console.log('render s-header...');
         html = _.template(tpl, {
           logo: RES.landing
         });
@@ -27,6 +28,9 @@
       },
       goHome: function() {
         return Backbone.history.navigate("/", true);
+      },
+      back: function() {
+        return window.history.back(-1);
       }
     });
     return module.exports = ThisView;

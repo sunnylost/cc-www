@@ -4,44 +4,27 @@ define (require, exports, module) ->
   Backbone = require 'backbone'
   _ = require 'underscore'
 
-  Util = require '../common/util'
-  RES = require '../common/res'
+  common = require './common'
+  tpl = require '../../tpl/main.tpl'
 
   ThisView = Backbone.View.extend
-    
-    el: $('body')
 
     initialize: ->
-      self = @
-
-      @res = RES
-      @loadRes ->
-        self.render()
+      console.log 'init main...'
+      @common = common
+      @render()
 
     render: ->
-      console.log 'render views/main'
-      setTimeout ->
-        HeaderView = require './header'
-        new HeaderView
-        $('#landing').addClass('fadeOutUp animated')
-        setTimeout ->
-          $('#landing').remove()
-        , 1000
-      , 1000
+      $('.page').html """<div class="wrapper">#{tpl}</div>"""
+      HeaderView = require './header'
+      headerView = new HeaderView el: $("header")
 
-    loadRes: (callback)->
-      self = @
-      counter = 0
+      SectionView = require './section'
+      sectionView = new SectionView el: $('section')
 
-      for key of @res
-        prefix = '?v=' + new Date().getTime()
-        url = self.res[key] #+ prefix
-        #self.loader url
-        CC.funs.imgLoader url, (o) ->
-          console.log 'loaded->', o
-          counter++
-          if counter == Util.countLength self.res
-            callback()
+      FooterView = require './footer'
+      footerView = new FooterView el: $('footer')
 
+      @
 
   module.exports = ThisView

@@ -5,9 +5,6 @@ App Interface
 ###
 
 express = require("express")
-#routes = require("./routes")
-#detail = require("./routes/detail")
-#search = require("./routes/search")
 http = require("http")
 path = require("path")
 app = express()
@@ -44,16 +41,14 @@ app.use express.errorHandler()  if "development" is app.get("env")
 
 routes = require("./routes")
 detail = require("./routes/detail")
-search = require("./routes/search")
 
 # 首页
 app.get "/", routes.index
+app.get /^\/page-*?(?:\/(\d+)(?:\.\.(\d+))?)?/, routes.index
+#app.get "/user*?", routes.index
 
-# 详情页 
-app.get "/detail", detail.list
-
-# search
-app.get "/search", search.index
+# detail 
+#app.get "/detail*?", detail.list
 
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")

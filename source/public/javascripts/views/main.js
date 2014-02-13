@@ -1,50 +1,33 @@
 (function() {
   define(function(require, exports, module) {
-    var $, Backbone, RES, ThisView, Util, _;
+    var $, Backbone, ThisView, common, tpl, _;
     $ = require('jquery');
     Backbone = require('backbone');
     _ = require('underscore');
-    Util = require('../common/util');
-    RES = require('../common/res');
+    common = require('./common');
+    tpl = require('../../tpl/main.tpl');
     ThisView = Backbone.View.extend({
-      el: $('body'),
       initialize: function() {
-        var self;
-        self = this;
-        this.res = RES;
-        return this.loadRes(function() {
-          return self.render();
-        });
+        console.log('init main...');
+        this.common = common;
+        return this.render();
       },
       render: function() {
-        console.log('render views/main');
-        return setTimeout(function() {
-          var HeaderView;
-          HeaderView = require('./header');
-          new HeaderView;
-          $('#landing').addClass('fadeOutUp animated');
-          return setTimeout(function() {
-            return $('#landing').remove();
-          }, 1000);
-        }, 1000);
-      },
-      loadRes: function(callback) {
-        var counter, key, prefix, self, url, _results;
-        self = this;
-        counter = 0;
-        _results = [];
-        for (key in this.res) {
-          prefix = '?v=' + new Date().getTime();
-          url = self.res[key];
-          _results.push(CC.funs.imgLoader(url, function(o) {
-            console.log('loaded->', o);
-            counter++;
-            if (counter === Util.countLength(self.res)) {
-              return callback();
-            }
-          }));
-        }
-        return _results;
+        var FooterView, HeaderView, SectionView, footerView, headerView, sectionView;
+        $('.page').html("<div class=\"wrapper\">" + tpl + "</div>");
+        HeaderView = require('./header');
+        headerView = new HeaderView({
+          el: $("header")
+        });
+        SectionView = require('./section');
+        sectionView = new SectionView({
+          el: $('section')
+        });
+        FooterView = require('./footer');
+        footerView = new FooterView({
+          el: $('footer')
+        });
+        return this;
       }
     });
     return module.exports = ThisView;

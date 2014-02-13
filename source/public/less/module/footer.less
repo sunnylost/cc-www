@@ -1,15 +1,13 @@
-.footer {
+footer {
   position: fixed;
   width: 100%;
   bottom: 0;
-  background-color: #999;
+  background-color: #fff;
 
   .inner {
     width: 100%;
   }
 
-  ul {
-  }
   ul li {
     display: inline-block;
     float: left;
@@ -18,10 +16,14 @@
     margin: 0;
     padding: 12px 0;
     text-align: center;
-    background-color: #AF9540;
-    color: white;
+    //background-color: #AF9540;
+    color: #777;
     cursor: pointer;
+  }
+}
+.footer {
 
+  ul li {
     span {
       display: inline-block;
       padding-bottom: 5px;
@@ -34,9 +36,51 @@
     }
   }
   ul li:first-child {
-    background-color: orange;
   }
   ul li:last-child {
-    background-color: #2C6B8F;
+  }
+  .dotted-line {
+    width: 100%;
+    border: 1px #999 dotted;
+    border-top: none;
+    border-bottom: none;
+  }
+  ul li:hover {
+    .animate-text(.5s);
+    color: #222;
+  }
+  ul li:first-child:hover {
+  }
+  ul li:last-child:hover {
+  }
+
+}
+
+.sub-footer {
+  background-color: #ffffff;
+
+  ul li {
+    h3 {
+      font-size: 1.2em;
+    }
+    i {
+      display: none;
+      position: absolute;
+      background: url(/images/arrow-white.png);
+      background-repeat: no-repeat;
+      background-position: center 0;
+    }
+  }
+  ul li.active {
+    color: #d29829;
+    position: relative;
+    i {
+      display: inline-block;
+      width: 20px;
+      height: 10px;
+      top: -10px;
+      left: 50%;
+      margin-left: -10px;
+    }
   }
 }

@@ -6,19 +6,19 @@
     _ = require('underscore');
     Util = require('../common/util');
     RES = require('../common/res');
-    tpl = require('../../tpl/header.tpl');
+    tpl = require('../../tpl/cc-footer.tpl');
     ThisView = Backbone.View.extend({
-      id: 'ID-header',
-      className: 'header',
+      id: 'ID-s-footer',
       initialize: function() {
         return this.render();
       },
       events: {
-        'click .logo': 'goHome'
+        'click .logo': 'goHome',
+        'click .go-home': 'goHome'
       },
       render: function() {
         var html;
-        console.log('render header...');
+        console.log('render cc-footer...');
         html = _.template(tpl, {
           logo: RES.landing
         });

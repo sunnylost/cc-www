@@ -35,6 +35,13 @@
   transition-duration: @time;
 }
 
+.animate-text (@time: 0.2s) {
+  -webkit-transition: opacity @time ease,color @time ease,background @time ease,box-shadow @time ease;
+  -moz-transition: opacity @time ease,color @time ease,background @time ease,box-shadow @time ease;
+  -o-transition: opacity @time ease,color @time ease,background @time ease,box-shadow @time ease;
+  transition: opacity @time ease,color @time ease,background @time ease,box-shadow @time ease;
+}
+
 .clearfix {
   zoom: 1;
 }

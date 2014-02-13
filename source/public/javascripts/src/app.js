@@ -1,10 +1,16 @@
 (function() {
   define(function(require) {
-    var App;
+    var App, Backbone;
     window.CC = {};
     CC.funs = require('../common/globalFuns');
-    App = require('../views/main');
-    return new App;
+    Backbone = require('backbone');
+    App = require('../routers/router');
+    new App;
+    return Backbone.history.start({
+      pushState: true,
+      hasChange: false,
+      root: '/'
+    });
   });
 
 }).call(this);

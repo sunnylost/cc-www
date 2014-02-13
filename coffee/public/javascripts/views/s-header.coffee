@@ -7,28 +7,30 @@ define (require, exports, module) ->
   Util = require '../common/util'
   RES = require '../common/res'
 
-  tpl = require '../../tpl/header.tpl'
+  tpl = require '../../tpl/s-header.tpl'
 
   ThisView = Backbone.View.extend
 
-    id: 'ID-header'
-    className: 'header'
+    id: 'ID-s-header'
+    className: 's-header'
 
     initialize: ->
       @render()
 
     events:
       'click .logo': 'goHome'
+      'click .go-back': 'back'
 
     render: ->
-      console.log 'render header...'
+      console.log 'render s-header...'
       html = _.template tpl, {logo: RES.landing}
       @$el.html html
       @
 
     goHome: ->
       Backbone.history.navigate "/", true
-      #ContainerView = require './container'
-      #new ContainerView
+
+    back: ->
+      window.history.back -1
 
   module.exports = ThisView

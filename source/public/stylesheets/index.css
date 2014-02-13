@@ -188,6 +188,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 html {
   background-color: #f1f1f1;
@@ -201,6 +202,19 @@ body {
 ul {
   margin: 0;
   padding: 0;
+}
+.page {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  /*
+  background-image: url(/images/logo-small.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  */
+}
+.wrapper {
+  background-color: #f7f7f7;
 }
 @charset "UTF-8";
 /*!
@@ -220,6 +234,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+.animated.slow {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
 }
 .animated.hinge {
   -webkit-animation-duration: 2s;
@@ -2436,6 +2454,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+/* slideInUp */
+@-webkit-keyframes slideInUp {
+  0% {
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes slideInUp {
+  0% {
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+}
+/* end slideInUp */
 @-webkit-keyframes hinge {
   0% {
     -webkit-transform: rotate(0);
@@ -2595,19 +2641,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 #landing {
   position: absolute;
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #fff;
-  background-image: url('/images/loading.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 30%;
+  z-index: 9999;
 }
-.header {
+#landing .landing-status {
+  width: 240px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-image: url(/images/loading.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  margin: -50px 0 0 -120px;
+  background-color: white;
+}
+header {
   z-index: 20;
   width: 100%;
-  background: #fff;
+  background: #f9f9f9;
 }
 .header .inner {
   position: relative;
@@ -2618,10 +2675,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 100%;
   font: inherit;
   text-align: center;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 .header .inner img.logo {
   height: 100%;
   width: auto;
+  cursor: pointer;
 }
 .header a.header-logo {
   display: inline-block;
@@ -2678,16 +2741,84 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .header ul.main-nav li:hover {
   background-color: #ecedf0;
 }
-.footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  background-color: #999;
+.s-header {
+  border-bottom: 1px solid #F1F1F1;
+  box-shadow: 4px 3px 5px #FFFFFF;
 }
-.footer .inner {
+.s-header .inner {
+  position: relative;
+  margin: 0 auto;
+  padding: 10px 0;
   width: 100%;
+  height: 40px;
+  font-size: 100%;
+  font: inherit;
+  text-align: center;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
-.footer ul li {
+.s-header .inner .bar-left,
+.s-header .inner .bar-right {
+  position: absolute;
+  z-index: 21;
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+}
+.s-header .inner .bar-left {
+  left: 30px;
+  cursor: pointer;
+}
+.s-header .inner .bar-left span {
+  display: inline-block;
+  float: left;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+.s-header .inner .bar-left span.arrow-left {
+  background: url(/images/arrow-left.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 70%;
+}
+.s-header .inner .bar-left span.arrow-text {
+  margin-left: 10px;
+  width: auto;
+  font-size: 1.4em;
+  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -moz-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -o-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.s-header .inner .bar-left:hover {
+  color: #777;
+}
+.s-header .inner .bar-right {
+  right: 30px;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+.s-header .inner .bar-right:hover {
+  color: #777;
+}
+.s-header .inner img.logo {
+  height: 100%;
+  width: auto;
+  cursor: pointer;
+}
+.sub-header {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  padding-bottom: 3px;
+}
+.sub-header .inner {
+  height: 60px;
+}
+.sub-header ul li {
   display: inline-block;
   float: left;
   width: 33.333333333333336%;
@@ -2695,8 +2826,97 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0;
   padding: 12px 0;
   text-align: center;
-  background-color: #AF9540;
-  color: white;
+  color: #777;
+  cursor: pointer;
+}
+.sub-header ul li span {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.sub-header ul li h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4em;
+}
+.sub-header ul li:hover {
+  -webkit-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  -moz-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  -o-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  color: #222;
+}
+.sub-header ul li.active {
+  background-image: url(/images/shadow-bg.png);
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  color: #d29829;
+}
+.section {
+  background-color: transparent;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+.container img {
+  width: 100%;
+  height: auto;
+}
+.container-in {
+  background-color: orange;
+}
+.slider {
+  position: relative;
+}
+.slider .slider-title {
+  position: absolute;
+}
+.slider .home-slider {
+  width: 400px;
+  min-height: 200px;
+  left: 10%;
+  top: 15%;
+  -vendor-animation-duration: 3s;
+  -vendor-animation-delay: 2s;
+  -vendor-animation-iteration-count: infinite;
+}
+.slider h2 {
+  font-size: 2.6em;
+  font-weight: bold;
+}
+.slider p {
+  padding: 10px 0;
+  color: #777;
+}
+.view-cc-wp {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: -1000px;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #fff;
+}
+footer .inner {
+  width: 100%;
+}
+footer ul li {
+  display: inline-block;
+  float: left;
+  width: 33.333333333333336%;
+  height: 100%;
+  margin: 0;
+  padding: 12px 0;
+  text-align: center;
+  color: #777;
   cursor: pointer;
 }
 .footer ul li span {
@@ -2708,9 +2928,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 0;
   font-size: 1.4em;
 }
-.footer ul li:first-child {
-  background-color: orange;
+.footer .dotted-line {
+  width: 100%;
+  border: 1px #999 dotted;
+  border-top: none;
+  border-bottom: none;
 }
-.footer ul li:last-child {
-  background-color: #2C6B8F;
+.footer ul li:hover {
+  -webkit-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  -moz-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  -o-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  color: #222;
+}
+.sub-footer {
+  background-color: #ffffff;
+}
+.sub-footer ul li h3 {
+  font-size: 1.2em;
+}
+.sub-footer ul li i {
+  display: none;
+  position: absolute;
+  background: url(/images/arrow-white.png);
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+.sub-footer ul li.active {
+  color: #d29829;
+  position: relative;
+}
+.sub-footer ul li.active i {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
 }
