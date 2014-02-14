@@ -4,22 +4,20 @@
     $ = require('jquery');
     Backbone = require('backbone');
     _ = require('underscore');
-    Util = require('../common/util');
-    RES = require('../common/res');
-    tpl = require('../../tpl/s-header.tpl');
+    Util = require('../../common/util');
+    RES = require('../../common/res');
+    tpl = require('../../../tpl/customers-footer.tpl');
     ThisView = Backbone.View.extend({
-      id: 'ID-s-header',
-      className: 's-header',
+      id: 'ID-sub-footer',
       initialize: function() {
         return this.render();
       },
       events: {
         'click .logo': 'goHome',
-        'click .go-back': 'back'
+        'click .go-home': 'goHome'
       },
       render: function() {
         var html;
-        console.log('render s-header...');
         html = _.template(tpl, {
           logo: RES.landing
         });
@@ -28,9 +26,6 @@
       },
       goHome: function() {
         return Backbone.history.navigate("/", true);
-      },
-      back: function() {
-        return window.history.back(-1);
       }
     });
     return module.exports = ThisView;

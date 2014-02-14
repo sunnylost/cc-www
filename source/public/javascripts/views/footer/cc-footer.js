@@ -4,12 +4,11 @@
     $ = require('jquery');
     Backbone = require('backbone');
     _ = require('underscore');
-    Util = require('../common/util');
-    RES = require('../common/res');
-    tpl = require('../../tpl/s-footer.tpl');
+    Util = require('../../common/util');
+    RES = require('../../common/res');
+    tpl = require('../../../tpl/cc-footer.tpl');
     ThisView = Backbone.View.extend({
       id: 'ID-s-footer',
-      className: 's-footer',
       initialize: function() {
         return this.render();
       },
@@ -19,7 +18,7 @@
       },
       render: function() {
         var html;
-        console.log('render s-footer...');
+        console.log('render cc-footer...');
         html = _.template(tpl, {
           logo: RES.landing
         });

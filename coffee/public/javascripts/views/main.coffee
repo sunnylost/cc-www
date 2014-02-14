@@ -16,13 +16,13 @@ define (require, exports, module) ->
 
     render: ->
       $('.page').html """<div class="wrapper">#{tpl}</div>"""
-      HeaderView = require './header'
+      HeaderView = require './header/header'
       headerView = new HeaderView el: $("header")
 
       SectionView = require './section'
       sectionView = new SectionView el: $('section')
 
-      FooterView = require './footer'
+      FooterView = require './footer/footer'
       footerView = new FooterView el: $('footer')
 
       @

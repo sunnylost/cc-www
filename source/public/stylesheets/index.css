@@ -2866,7 +2866,7 @@ header {
   height: auto;
 }
 .container-in {
-  background-color: orange;
+  background-color: #FAFAFA;
 }
 .slider {
   position: relative;
@@ -2965,4 +2965,7 @@ footer ul li {
   top: -10px;
   left: 50%;
   margin-left: -10px;
+}
+.sub-footer ul.has-double-li li {
+  width: 50%;
 }

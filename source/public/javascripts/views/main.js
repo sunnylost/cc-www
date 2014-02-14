@@ -15,7 +15,7 @@
       render: function() {
         var FooterView, HeaderView, SectionView, footerView, headerView, sectionView;
         $('.page').html("<div class=\"wrapper\">" + tpl + "</div>");
-        HeaderView = require('./header');
+        HeaderView = require('./header/header');
         headerView = new HeaderView({
           el: $("header")
         });
@@ -23,7 +23,7 @@
         sectionView = new SectionView({
           el: $('section')
         });
-        FooterView = require('./footer');
+        FooterView = require('./footer/footer');
         footerView = new FooterView({
           el: $('footer')
         });

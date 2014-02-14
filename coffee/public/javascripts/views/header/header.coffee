@@ -4,29 +4,31 @@ define (require, exports, module) ->
   Backbone = require 'backbone'
   _ = require 'underscore'
 
-  Util = require '../common/util'
-  RES = require '../common/res'
+  Util = require '../../common/util'
+  RES = require '../../common/res'
 
-  tpl = require '../../tpl/cc-footer.tpl'
+  tpl = require '../../../tpl/header.tpl'
 
   ThisView = Backbone.View.extend
 
-    id: 'ID-s-footer'
+    id: 'ID-header'
+    className: 'header'
 
     initialize: ->
       @render()
 
     events:
       'click .logo': 'goHome'
-      'click .go-home': 'goHome'
 
     render: ->
-      console.log 'render cc-footer...'
+      console.log 'render header...'
       html = _.template tpl, {logo: RES.landing}
       @$el.html html
       @
 
     goHome: ->
       Backbone.history.navigate "/", true
+      #ContainerView = require './container'
+      #new ContainerView
 
   module.exports = ThisView

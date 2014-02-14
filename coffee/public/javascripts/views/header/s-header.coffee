@@ -4,10 +4,10 @@ define (require, exports, module) ->
   Backbone = require 'backbone'
   _ = require 'underscore'
 
-  Util = require '../common/util'
-  RES = require '../common/res'
+  Util = require '../../common/util'
+  RES = require '../../common/res'
 
-  tpl = require '../../tpl/s-header.tpl'
+  tpl = require '../../../tpl/s-header.tpl'
 
   ThisView = Backbone.View.extend
 
@@ -31,6 +31,7 @@ define (require, exports, module) ->
       Backbone.history.navigate "/", true
 
     back: ->
-      window.history.back -1
+      #window.history.back -1
+      Backbone.history.navigate "/", true
 
   module.exports = ThisView

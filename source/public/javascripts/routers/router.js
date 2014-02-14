@@ -61,7 +61,7 @@
       },
       pageCreditCloud: function() {
         var CcView;
-        CcView = require('../views/creditcloud');
+        CcView = require('../views/page/creditcloud');
         return new CcView({
           el: $('.page')
         });
@@ -71,11 +71,23 @@
         console.log('page: ', page);
         self = this;
         return this.loadRes(function() {
-          var CcView;
+          var CcView, Customers, ProductsView;
           $('.page').append('<div class="wrapper"></div>');
           if (page === 'cc') {
-            CcView = require('../views/creditcloud');
+            CcView = require('../views/page/creditcloud');
             new CcView({
+              el: $('.wrapper:last')
+            });
+          }
+          if (page === 'products') {
+            ProductsView = require('../views/page/products');
+            new ProductsView({
+              el: $('.wrapper:last')
+            });
+          }
+          if (page === 'customers') {
+            Customers = require('../views/page/customers');
+            new Customers({
               el: $('.wrapper:last')
             });
           }

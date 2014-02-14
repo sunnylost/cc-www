@@ -58,7 +58,7 @@ define (require, exports, module) ->
         new App
 
     pageCreditCloud: ->
-      CcView = require '../views/creditcloud'
+      CcView = require '../views/page/creditcloud'
       new CcView el: $('.page')
 
     # 各个page view
@@ -69,8 +69,16 @@ define (require, exports, module) ->
       @loadRes ->
         $('.page').append '<div class="wrapper"></div>'
         if page == 'cc'
-          CcView = require '../views/creditcloud'
+          CcView = require '../views/page/creditcloud'
           new CcView el: $('.wrapper:last')
+
+        if page == 'products'
+          ProductsView = require '../views/page/products'
+          new ProductsView el: $('.wrapper:last')
+
+        if page == 'customers'
+          Customers = require '../views/page/customers'
+          new Customers el: $('.wrapper:last')
 
         if page == 'cc-about'
           console.log 'cc-about'
