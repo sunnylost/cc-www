@@ -10,7 +10,6 @@ define (require, exports, module) ->
   ThisView = Backbone.View.extend
 
     initialize: ->
-      console.log 'init main...'
       @common = common
       @render()
 

@@ -8,7 +8,6 @@
     tpl = require('../../tpl/main.tpl');
     ThisView = Backbone.View.extend({
       initialize: function() {
-        console.log('init main...');
         this.common = common;
         return this.render();
       },
