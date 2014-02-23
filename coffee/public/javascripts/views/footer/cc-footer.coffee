@@ -34,6 +34,7 @@ define (require, exports, module) ->
       self = @
       $this = $(e.currentTarget)
       @setCurrentTab $this
+      $('.container-in').append('<div class="sub-body"></div>')
       
       view = $this.data 'view'
       switch view
@@ -47,19 +48,18 @@ define (require, exports, module) ->
         then self.techView()
 
       @addAnimate()
-      $('.container-in').append('<div class="sub-body"></div>')
 
     aboutView: ->
       ConView = require '../content/cc-about'
-      conView = new ConView el: $('.sub-body')
+      conView = new ConView el: $('.sub-body:last')
 
     focusView: ->
       ConView = require '../content/cc-focus'
-      conView = new ConView el: $('.sub-body')
+      conView = new ConView el: $('.sub-body:last')
 
     techView: ->
       ConView = require '../content/cc-tech'
-      conView = new ConView el: $('.sub-body')
+      conView = new ConView el: $('.sub-body:last')
 
     switchView: (view) ->
       setTimeout

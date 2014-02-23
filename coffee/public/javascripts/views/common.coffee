@@ -21,6 +21,25 @@ define (require, exports, module) ->
         if callback
           callback()
       , time
+
+    # 清除多余的sub-body
+    removeSubBody: (time=80, callback) ->
+      if $.isFunction time
+        callback = time
+        time = 500
+
+      $body = $('.container-in .sub-body')
+      arr = [0...$body.length]
+      console.log 'arr.length', arr
+      if arr.length <= 1
+        return
+      setTimeout ->
+        for key in arr
+          if key < $body.length - 1
+            $body.get(key).remove()
+        if callback
+          callback()
+      , time
     
     resetContainer: ($container=$('.container-in'))->
       console.log '$container', $container

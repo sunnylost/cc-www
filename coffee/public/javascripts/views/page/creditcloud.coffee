@@ -38,6 +38,7 @@ define (require, exports, module) ->
       ContainerView = require '../content/cc-about'
       $('.container-in').append('<div class="sub-body"></div>')
       containerView = new ContainerView el: $('.sub-body')
+      alert 'page/creditcloud'
 
       setTimeout ->
         CcFooterView = require '../footer/cc-footer'

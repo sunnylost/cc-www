@@ -229,6 +229,15 @@ ul {
 .orange {
   background-color: #ffa500;
 }
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.inline-block {
+  display: inline-block;
+}
 @charset "UTF-8";
 /*!
 Animate.css - http://daneden.me/animate
@@ -2828,6 +2837,15 @@ header {
   -moz-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   -o-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  position: absolute;
+  z-index: 10;
+  width: 300px;
+  height: 100%;
+  left: -400px;
+  top: 0;
+}
+.s-header .inner .bar-left span.arrow-text h2 {
+  margin-top: 35%;
 }
 .s-header .inner .bar-left:hover {
   color: #777;
@@ -2846,9 +2864,11 @@ header {
   cursor: pointer;
 }
 .sub-header {
+  position: fixed;
+  z-index: 20;
+  padding-bottom: 0px;
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  padding-bottom: 3px;
 }
 .sub-header .inner {
   height: 60px;
@@ -2894,7 +2914,8 @@ header {
   height: auto;
 }
 section .sub-page {
-  background-color: transparent;
+  background-color: #F7F7F7;
+  margin-top: 65px;
 }
 .container {
   width: 100%;
@@ -2905,9 +2926,9 @@ section .sub-page {
   height: auto;
 }
 .container-in {
-  background-color: #FAFAFA;
   overflow: auto;
-  margin-top: 5px;
+  margin: 0 auto;
+  max-width: 1280px;
 }
 .slider {
   position: relative;
@@ -2932,8 +2953,66 @@ section .sub-page {
   padding: 10px 0;
   color: #777;
 }
+.sub-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.animate-text {
+  position: absolute;
+  z-index: 10;
+  width: 300px;
+  height: 100%;
+  left: -400px;
+  top: 0;
+}
+.animate-text h2 {
+  margin-top: 35%;
+}
+.team-wrap {
+  margin-left: 300px;
+  height: 100%;
+}
+.team-wrap table {
+  width: 100%;
+  height: 100%;
+}
+.team-wrap table img {
+  width: 100%;
+}
+.team-wrap table tr td {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.team-wrap table tr td.ava-1 {
+  background-image: url(/images/team/1.png);
+}
+.team-wrap table tr td.ava-2 {
+  background-image: url(/images/team/2.png);
+}
+.team-wrap .team-top {
+  height: 50%;
+}
+.team-wrap .team-top .pull-left,
+.team-wrap .team-top .pull-right {
+  width: 50%;
+  height: 100%;
+}
+.team-wrap .team-top .pull-left table tr td {
+  width: 50%;
+}
+.team-wrap .team-top .pull-right {
+  background: blue;
+}
+.team-wrap .team-bottom {
+  height: 50%;
+  background-color: orange;
+}
 footer {
   position: fixed;
+  z-index: 100;
   width: 100%;
   bottom: 0;
   background-color: #fff;
@@ -2979,6 +3058,7 @@ footer ul li {
 }
 .sub-footer i {
   position: absolute;
+  z-index: 20;
   background: url(/images/arrow-white.png);
   background-repeat: no-repeat;
   background-position: center 0;

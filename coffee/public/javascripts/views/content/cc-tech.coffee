@@ -5,6 +5,7 @@ define (require, exprots, module) ->
   _ = require 'underscore'
 
   Util = require '../../common/util'
+  common = require '../common'
   RES = require '../../common/res'
 
   tpl = require '../../../tpl/cc-tech.tpl'
@@ -12,6 +13,7 @@ define (require, exprots, module) ->
   ThisView = Backbone.View.extend
 
     initialize: ->
+      @common = common
       @render()
 
     events:
@@ -19,6 +21,7 @@ define (require, exprots, module) ->
 
     render: ->
       @$el.html _.template tpl
+      @common.removeSubBody()
       @
 
     button: ->

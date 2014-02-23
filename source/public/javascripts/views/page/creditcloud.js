@@ -40,6 +40,7 @@
         containerView = new ContainerView({
           el: $('.sub-body')
         });
+        alert('page/creditcloud');
         setTimeout(function() {
           var CcFooterView, ccFooterView;
           CcFooterView = require('../footer/cc-footer');

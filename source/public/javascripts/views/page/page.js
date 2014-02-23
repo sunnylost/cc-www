@@ -20,7 +20,7 @@
         return this.render();
       },
       render: function() {
-        var $wrapper, HeaderView, SubHeaderView, h_h, h_s, headerView, self, subHeaderView;
+        var $wrapper, ANIMATION, HeaderView, SubHeaderView, h_h, h_s, headerView, self, subHeaderView;
         self = this;
         $wrapper = $('.wrapper');
         this.$el.html(tpl);
@@ -46,26 +46,29 @@
           case 'customers':
             self.renderCustomers();
         }
+        ANIMATION = 'fadeInUpBig';
         if (this.sHeader) {
           this.$el.find('.sub-page').css({
             top: 0
-          }).addClass('slideInUp');
+          }).addClass(ANIMATION);
         } else {
           this.$el.css({
             top: 0
-          }).addClass('slideInUp');
+          }).addClass(ANIMATION);
         }
         this.common.removeWrapper();
         h_h = $('.s-header').height();
         h_s = $('.sub-header').height();
-        return $('.sub-page').height($(window).height() - h_h - h_s);
+        $('.sub-page').height($(window).height() - h_h - h_s);
+        console.log('~~~~', $('.sub-footer').height());
+        return $('.container-in').height($('.sub-page').height() - 80);
       },
       renderCreditcloud: function() {
         var ContainerView, containerView, self;
         self = this;
         ContainerView = require('../content/cc-about');
         containerView = new ContainerView({
-          el: $('.sub-section .container-in')
+          el: $('.sub-body:last')
         });
         return setTimeout(function() {
           var CcFooterView, ccFooterView;

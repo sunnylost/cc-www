@@ -37,6 +37,7 @@
         self = this;
         $this = $(e.currentTarget);
         this.setCurrentTab($this);
+        $('.container-in').append('<div class="sub-body"></div>');
         view = $this.data('view');
         switch (view) {
           case 'about':
@@ -48,28 +49,27 @@
           case 'tech':
             self.techView();
         }
-        this.addAnimate();
-        return $('.container-in').append('<div class="sub-body"></div>');
+        return this.addAnimate();
       },
       aboutView: function() {
         var ConView, conView;
         ConView = require('../content/cc-about');
         return conView = new ConView({
-          el: $('.sub-body')
+          el: $('.sub-body:last')
         });
       },
       focusView: function() {
         var ConView, conView;
         ConView = require('../content/cc-focus');
         return conView = new ConView({
-          el: $('.sub-body')
+          el: $('.sub-body:last')
         });
       },
       techView: function() {
         var ConView, conView;
         ConView = require('../content/cc-tech');
         return conView = new ConView({
-          el: $('.sub-body')
+          el: $('.sub-body:last')
         });
       },
       switchView: function(view) {

@@ -34,6 +34,38 @@
           }
         }, time);
       },
+      removeSubBody: function(time, callback) {
+        var $body, arr, _i, _ref, _results;
+        if (time == null) {
+          time = 80;
+        }
+        if ($.isFunction(time)) {
+          callback = time;
+          time = 500;
+        }
+        $body = $('.container-in .sub-body');
+        arr = (function() {
+          _results = [];
+          for (var _i = 0, _ref = $body.length; 0 <= _ref ? _i < _ref : _i > _ref; 0 <= _ref ? _i++ : _i--){ _results.push(_i); }
+          return _results;
+        }).apply(this);
+        console.log('arr.length', arr);
+        if (arr.length <= 1) {
+          return;
+        }
+        return setTimeout(function() {
+          var key, _j, _len;
+          for (_j = 0, _len = arr.length; _j < _len; _j++) {
+            key = arr[_j];
+            if (key < $body.length - 1) {
+              $body.get(key).remove();
+            }
+          }
+          if (callback) {
+            return callback();
+          }
+        }, time);
+      },
       resetContainer: function($container) {
         var h_header, h_subFooter, h_subHeader, reset_height;
         if ($container == null) {

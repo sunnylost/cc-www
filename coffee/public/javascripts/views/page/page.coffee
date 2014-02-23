@@ -47,10 +47,13 @@ define (require, exports, module) ->
         then self.renderCustomers()
 
 
+      #ANIMATION = 'slideInUp'
+      ANIMATION = 'fadeInUpBig'
+
       if @sHeader
-        @$el.find('.sub-page').css({top:0}).addClass 'slideInUp'
+        @$el.find('.sub-page').css({top:0}).addClass ANIMATION
       else
-        @$el.css({top:0}).addClass 'slideInUp'
+        @$el.css({top:0}).addClass ANIMATION
 
       @common.removeWrapper()
 
@@ -59,11 +62,15 @@ define (require, exports, module) ->
       h_s = $('.sub-header').height()
       $('.sub-page').height $(window).height() - h_h - h_s
 
+      #set container-in
+      console.log '~~~~', $('.sub-footer').height()
+      $('.container-in').height($('.sub-page').height() - 80)
+
     renderCreditcloud: ->
       self = @
 
       ContainerView = require '../content/cc-about'
-      containerView = new ContainerView el: $('.sub-section .container-in')
+      containerView = new ContainerView el: $('.sub-body:last')
 
       setTimeout ->
         CcFooterView = require '../footer/cc-footer'
