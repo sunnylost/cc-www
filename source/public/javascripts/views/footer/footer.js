@@ -13,7 +13,6 @@
         'click li': 'footer'
       },
       render: function() {
-        console.log('render footer...');
         this.$el.html(_.template(tpl, {}));
         return this;
       },

@@ -15,7 +15,6 @@ define (require, exports, module) ->
       'click li': 'footer'
 
     render: ->
-      console.log 'render footer...'
       @$el.html _.template tpl, {}
       @
 

@@ -21,7 +21,6 @@ define (require, exports, module) ->
       'click li': 'subHeader'
 
     render: ->
-      console.log 'render s-header...'
       html = _.template tpl, {logo: RES.landing}
       @$el.html html
       @
@@ -31,8 +30,8 @@ define (require, exports, module) ->
       $this = $(e.currentTarget)
 
       sub_view = $this.data 'view'
-      #@$el.find('li').removeClass 'active'
-      #$this.addClass 'active'
+      @$el.find('li').removeClass 'active'
+      $this.addClass 'active'
 
       switch sub_view
         when 'cc'
@@ -45,15 +44,12 @@ define (require, exports, module) ->
         then self.customers()
 
     creditCloud: ->
-      console.log 'creditcloud'
       Backbone.history.navigate "/page-cc", true
 
     products: ->
-      console.log 'products'
       Backbone.history.navigate "/page-products", true
 
     customers: ->
-      console.log 'customers'
       Backbone.history.navigate "/page-customers", true
 
 

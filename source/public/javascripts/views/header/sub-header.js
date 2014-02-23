@@ -18,7 +18,6 @@
       },
       render: function() {
         var html;
-        console.log('render s-header...');
         html = _.template(tpl, {
           logo: RES.landing
         });
@@ -30,6 +29,8 @@
         self = this;
         $this = $(e.currentTarget);
         sub_view = $this.data('view');
+        this.$el.find('li').removeClass('active');
+        $this.addClass('active');
         switch (sub_view) {
           case 'cc':
             return self.creditCloud();
@@ -40,15 +41,12 @@
         }
       },
       creditCloud: function() {
-        console.log('creditcloud');
         return Backbone.history.navigate("/page-cc", true);
       },
       products: function() {
-        console.log('products');
         return Backbone.history.navigate("/page-products", true);
       },
       customers: function() {
-        console.log('customers');
         return Backbone.history.navigate("/page-customers", true);
       }
     });

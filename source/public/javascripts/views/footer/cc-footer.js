@@ -1,32 +1,87 @@
 (function() {
   define(function(require, exports, module) {
-    var $, Backbone, RES, ThisView, Util, tpl, _;
+    var $, Backbone, ThisView, Util, tpl, _;
     $ = require('jquery');
     Backbone = require('backbone');
     _ = require('underscore');
     Util = require('../../common/util');
-    RES = require('../../common/res');
     tpl = require('../../../tpl/cc-footer.tpl');
     ThisView = Backbone.View.extend({
-      id: 'ID-s-footer',
       initialize: function() {
-        return this.render();
+        this.render();
+        return this.setArrow(this.$el.find('li:first'));
       },
       events: {
-        'click .logo': 'goHome',
-        'click .go-home': 'goHome'
+        'click li': 'switchTab'
       },
       render: function() {
         var html;
-        console.log('render cc-footer...');
-        html = _.template(tpl, {
-          logo: RES.landing
-        });
+        html = _.template(tpl, {});
         this.$el.html(html);
         return this;
       },
-      goHome: function() {
-        return Backbone.history.navigate("/", true);
+      setCurrentTab: function($this) {
+        this.$el.find('li').removeClass('active');
+        $this.addClass('active');
+        return this.setArrow($this);
+      },
+      setArrow: function($this) {
+        var $arrow;
+        $arrow = this.$el.find('i.footer-arrow');
+        return $arrow.css({
+          left: $this.offset().left + ($this.width() - 15) / 2
+        });
+      },
+      switchTab: function(e) {
+        var $this, self, view;
+        self = this;
+        $this = $(e.currentTarget);
+        this.setCurrentTab($this);
+        view = $this.data('view');
+        switch (view) {
+          case 'about':
+            self.aboutView();
+            break;
+          case 'focus':
+            self.focusView();
+            break;
+          case 'tech':
+            self.techView();
+        }
+        this.addAnimate();
+        return $('.container-in').append('<div class="sub-body"></div>');
+      },
+      aboutView: function() {
+        var ConView, conView;
+        ConView = require('../content/cc-about');
+        return conView = new ConView({
+          el: $('.sub-body')
+        });
+      },
+      focusView: function() {
+        var ConView, conView;
+        ConView = require('../content/cc-focus');
+        return conView = new ConView({
+          el: $('.sub-body')
+        });
+      },
+      techView: function() {
+        var ConView, conView;
+        ConView = require('../content/cc-tech');
+        return conView = new ConView({
+          el: $('.sub-body')
+        });
+      },
+      switchView: function(view) {
+        return setTimeout;
+      },
+      addAnimate: function() {
+        var $containerIn;
+        $containerIn = $('.sub-section .container-in');
+        $containerIn.addClass('animated fadeInUp');
+        return setTimeout(function() {
+          return $containerIn.removeClass('animated fadeInUp');
+        }, 600);
       }
     });
     return module.exports = ThisView;

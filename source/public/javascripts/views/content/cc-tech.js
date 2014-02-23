@@ -6,7 +6,7 @@
     _ = require('underscore');
     Util = require('../../common/util');
     RES = require('../../common/res');
-    tpl = require('../../../tpl/cc-about.tpl');
+    tpl = require('../../../tpl/cc-tech.tpl');
     ThisView = Backbone.View.extend({
       initialize: function() {
         return this.render();
@@ -15,12 +15,11 @@
         'click button': 'button'
       },
       render: function() {
-        console.log('##class->', this.$el.attr('class'));
         this.$el.html(_.template(tpl));
         return this;
       },
       button: function() {
-        return alert('about');
+        return alert('tech');
       }
     });
     return module.exports = ThisView;

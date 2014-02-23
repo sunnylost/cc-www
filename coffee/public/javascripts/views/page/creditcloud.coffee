@@ -10,19 +10,23 @@ define (require, exports, module) ->
   tpl = require '../../../tpl/page.tpl'
 
   ThisView = Backbone.View.extend
+
+    sHeader: null
     
     initialize: ->
-      @$el.addClass 'view-cc-wp animated slow'
+      if $('.s-header').length <= 0
+        @$el.addClass 'animated slow'
+      else
+        @sHeader = true
       @common = common
       @render()
-
-    events:
-      'click button': 'button'
 
     render: ->
       self = @
       $wrapper = $('.wrapper')
       @$el.html tpl
+      if @sHeader
+        @$el.find('.sub-page').addClass 'animated slow'
       
       HeaderView = require '../header/s-header'
       headerView = new HeaderView el: $("header.s-header")
@@ -32,7 +36,8 @@ define (require, exports, module) ->
       @$el.find('li[data-view=cc]').addClass 'active'
 
       ContainerView = require '../content/cc-about'
-      containerView = new ContainerView el: $('.sub-section .container-in')
+      $('.container-in').append('<div class="sub-body"></div>')
+      containerView = new ContainerView el: $('.sub-body')
 
       setTimeout ->
         CcFooterView = require '../footer/cc-footer'
@@ -40,15 +45,13 @@ define (require, exports, module) ->
         self.common.resetContainer()
       , 300
 
-      @$el.css({top:0}).addClass 'slideInUp'
-
-      setTimeout ->
-        if $wrapper.length > 1
-          $wrapper.get(0).remove()
-      , 1010
-
-    button: ->
-      alert 33333
-      #Backbone.history.navigate '/', true
+      if @sHeader
+        @$el.find('.sub-page').css({top:0}).addClass 'slideInUp'
+      else
+        @$el.css({top:0}).addClass 'slideInUp'
+      @common.removeWrapper ->
+        setTimeout ->
+          self.common.resetContainer()
+        , 200
 
   module.exports = ThisView

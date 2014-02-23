@@ -19,7 +19,7 @@ define (require, exports, module) ->
 
     routes:
       ''                : 'home'
-      'page-:view'      : 'page'
+      'page-:view*'      : 'page'
 
     ## 载入资源文件
     loadRes: (callback) ->
@@ -50,42 +50,27 @@ define (require, exports, module) ->
               callback()
             , 1000
 
+    newWrapper: ->
+      $('.page').append '<div class="wrapper"></div>'
+
     # 首页
     home: ->
+      self = @
       @loadRes ->
         App = require '../views/main'
-        $('.page').append '<div class="wrapper"></div>'
+        self.newWrapper()
         new App
 
-    pageCreditCloud: ->
-      CcView = require '../views/page/creditcloud'
-      new CcView el: $('.page')
-
-    # 各个page view
+    #;q 各个page view
     page: (page)->
       console.log 'page: ', page
       self = @
-
       @loadRes ->
-        $('.page').append '<div class="wrapper"></div>'
-        if page == 'cc'
-          CcView = require '../views/page/creditcloud'
-          new CcView el: $('.wrapper:last')
-
-        if page == 'products'
-          ProductsView = require '../views/page/products'
-          new ProductsView el: $('.wrapper:last')
-
-        if page == 'customers'
-          Customers = require '../views/page/customers'
-          new Customers el: $('.wrapper:last')
-
-        if page == 'cc-about'
-          console.log 'cc-about'
-
-        if page == 'cc-'
-          console.log 'cc-focus'
-
+        self.newWrapper()
+        PageView = require '../views/page/page'
+        new PageView
+          el: $('.wrapper:last')
+          currentView: page
 
     switchView: (view) ->
       if @currentView

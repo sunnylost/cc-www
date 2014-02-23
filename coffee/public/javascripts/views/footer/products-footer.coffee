@@ -11,7 +11,7 @@ define (require, exports, module) ->
 
   ThisView = Backbone.View.extend
 
-    id: 'ID-s-footer'
+    id: 'ID-sub-footer'
 
     initialize: ->
       @render()
@@ -21,8 +21,7 @@ define (require, exports, module) ->
       'click .go-home': 'goHome'
 
     render: ->
-      console.log 'render products-footer...'
-      html = _.template tpl, {logo: RES.landing}
+      html = _.template tpl
       @$el.html html
       @
 

@@ -12,7 +12,8 @@ define (require, exports, module) ->
   ThisView = Backbone.View.extend
     
     initialize: ->
-      @$el.addClass 'view-cc-wp animated slow'
+      #@$el.addClass 'view-cc-wp animated slow'
+      @$el.addClass 'animated slow'
       @common = common
       @render()
 
@@ -31,6 +32,8 @@ define (require, exports, module) ->
       subHeaderView = new SubHeaderView el: $('.sub-header')
       @$el.find('li[data-view=customers]').addClass 'active'
 
+      #content view here
+
       setTimeout ->
         FooterView = require '../footer/customers-footer'
         footerView = new FooterView el: $('footer.sub-footer')
@@ -38,6 +41,7 @@ define (require, exports, module) ->
       , 300
 
       @$el.css({top:0}).addClass 'slideInUp'
+      @common.removeWrapper()
 
     button: ->
       alert 33333

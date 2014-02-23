@@ -12,7 +12,7 @@ define (require, exports, module) ->
   ThisView = Backbone.View.extend
     
     initialize: ->
-      @$el.addClass 'view-cc-wp animated slow'
+      @$el.addClass 'animated slow'
       @common = common
       @render()
 
@@ -38,11 +38,7 @@ define (require, exports, module) ->
       , 300
 
       @$el.css({top:0}).addClass 'slideInUp'
-
-      setTimeout ->
-        if $wrapper.length > 1
-          $wrapper.get(0).remove()
-      , 1010
+      @common.removeWrapper()
 
     button: ->
       alert 33333

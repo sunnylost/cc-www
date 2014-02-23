@@ -5,28 +5,70 @@ define (require, exports, module) ->
   _ = require 'underscore'
 
   Util = require '../../common/util'
-  RES = require '../../common/res'
-
   tpl = require '../../../tpl/cc-footer.tpl'
 
   ThisView = Backbone.View.extend
 
-    id: 'ID-s-footer'
-
     initialize: ->
       @render()
+      @setArrow @$el.find('li:first')
 
     events:
-      'click .logo': 'goHome'
-      'click .go-home': 'goHome'
+      'click li': 'switchTab'
 
     render: ->
-      console.log 'render cc-footer...'
-      html = _.template tpl, {logo: RES.landing}
+      html = _.template tpl, {}
       @$el.html html
       @
 
-    goHome: ->
-      Backbone.history.navigate "/", true
+    setCurrentTab: ($this) ->
+      @$el.find('li').removeClass 'active'
+      $this.addClass 'active'
+      @setArrow $this
+
+    setArrow: ($this) ->
+      $arrow = @$el.find('i.footer-arrow')
+      $arrow.css left: $this.offset().left + ($this.width()-15)/2
+
+    switchTab: (e) ->
+      self = @
+      $this = $(e.currentTarget)
+      @setCurrentTab $this
+      
+      view = $this.data 'view'
+      switch view
+        when 'about'
+        then self.aboutView()
+
+        when 'focus'
+        then self.focusView()
+
+        when 'tech'
+        then self.techView()
+
+      @addAnimate()
+      $('.container-in').append('<div class="sub-body"></div>')
+
+    aboutView: ->
+      ConView = require '../content/cc-about'
+      conView = new ConView el: $('.sub-body')
+
+    focusView: ->
+      ConView = require '../content/cc-focus'
+      conView = new ConView el: $('.sub-body')
+
+    techView: ->
+      ConView = require '../content/cc-tech'
+      conView = new ConView el: $('.sub-body')
+
+    switchView: (view) ->
+      setTimeout
+
+    addAnimate: ->
+      $containerIn = $('.sub-section .container-in')
+      $containerIn.addClass 'animated fadeInUp'
+      setTimeout ->
+        $containerIn.removeClass 'animated fadeInUp'
+      , 600
 
   module.exports = ThisView

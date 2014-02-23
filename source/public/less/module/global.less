@@ -21,6 +21,17 @@ ul {
   padding: 0;
 }
 
+// set values
+@red: #c43;
+@green: green;
+@orange: orange;
+@white: white;
+@black: black;
+@gray: gray;
+
+@scale: 3s;
+
+
 .page {
   width: 100%;
   height: 100%;
@@ -33,4 +44,19 @@ ul {
 }
 .wrapper {
   background-color: #f7f7f7;
+  height: 100 %;
+
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: -1000px;
+}
+
+.red {
+  background-color: @red;
+}
+.orange {
+  background-color: @orange;
 }

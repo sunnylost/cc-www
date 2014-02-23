@@ -8,7 +8,7 @@
     RES = require('../../common/res');
     tpl = require('../../../tpl/products-footer.tpl');
     ThisView = Backbone.View.extend({
-      id: 'ID-s-footer',
+      id: 'ID-sub-footer',
       initialize: function() {
         return this.render();
       },
@@ -18,10 +18,7 @@
       },
       render: function() {
         var html;
-        console.log('render products-footer...');
-        html = _.template(tpl, {
-          logo: RES.landing
-        });
+        html = _.template(tpl);
         this.$el.html(html);
         return this;
       },

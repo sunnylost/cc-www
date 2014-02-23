@@ -1,15 +1,13 @@
 <div class="inner">
+  <i class="footer-arrow"></i>
   <ul>
-    <li class="view-cc active">
-      <i></i>
+    <li data-view="about" class="active">
       <h3>关于团队</h3>
     </li>
-    <li class="view-products">
-      <i></i>
+    <li data-view="focus">
       <h3>专注性</h3>
     </li>
-    <li class="view-customers">
-      <i></i>
+    <li data-view="tech">
       <h3>技术与安全</h3>
     </li>
   </ul>

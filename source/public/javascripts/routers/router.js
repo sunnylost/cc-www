@@ -17,7 +17,7 @@
       },
       routes: {
         '': 'home',
-        'page-:view': 'page'
+        'page-:view*': 'page'
       },
       loadRes: function(callback) {
         var counter, key, prefix, self, url, _results;
@@ -51,19 +51,17 @@
         }
         return _results;
       },
+      newWrapper: function() {
+        return $('.page').append('<div class="wrapper"></div>');
+      },
       home: function() {
+        var self;
+        self = this;
         return this.loadRes(function() {
           var App;
           App = require('../views/main');
-          $('.page').append('<div class="wrapper"></div>');
+          self.newWrapper();
           return new App;
-        });
-      },
-      pageCreditCloud: function() {
-        var CcView;
-        CcView = require('../views/page/creditcloud');
-        return new CcView({
-          el: $('.page')
         });
       },
       page: function(page) {
@@ -71,32 +69,13 @@
         console.log('page: ', page);
         self = this;
         return this.loadRes(function() {
-          var CcView, Customers, ProductsView;
-          $('.page').append('<div class="wrapper"></div>');
-          if (page === 'cc') {
-            CcView = require('../views/page/creditcloud');
-            new CcView({
-              el: $('.wrapper:last')
-            });
-          }
-          if (page === 'products') {
-            ProductsView = require('../views/page/products');
-            new ProductsView({
-              el: $('.wrapper:last')
-            });
-          }
-          if (page === 'customers') {
-            Customers = require('../views/page/customers');
-            new Customers({
-              el: $('.wrapper:last')
-            });
-          }
-          if (page === 'cc-about') {
-            console.log('cc-about');
-          }
-          if (page === 'cc-') {
-            return console.log('cc-focus');
-          }
+          var PageView;
+          self.newWrapper();
+          PageView = require('../views/page/page');
+          return new PageView({
+            el: $('.wrapper:last'),
+            currentView: page
+          });
         });
       },
       switchView: function(view) {

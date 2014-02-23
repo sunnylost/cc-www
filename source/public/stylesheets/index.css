@@ -215,6 +215,19 @@ ul {
 }
 .wrapper {
   background-color: #f7f7f7;
+  height: 100 %;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: -1000px;
+}
+.red {
+  background-color: #cc4433;
+}
+.orange {
+  background-color: #ffa500;
 }
 @charset "UTF-8";
 /*!
@@ -2660,6 +2673,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-size: 100%;
   margin: -50px 0 0 -120px;
   background-color: white;
+  -webkit-transition-duration: 0.5s;
+  -moz-animation: rotation1 3s linear infinite;
+  -o-animation: rotation1 3s linear infinite;
+  -webkit-animation: rotation1 3s linear infinite;
+  animation: rotation1 3s linear infinite;
+}
+@-webkit-keyframes rotation1 {
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale(0.9, 0.9);
+  }
 }
 header {
   z-index: 20;
@@ -2856,6 +2891,10 @@ header {
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
+  height: auto;
+}
+section .sub-page {
+  background-color: transparent;
 }
 .container {
   width: 100%;
@@ -2867,6 +2906,8 @@ header {
 }
 .container-in {
   background-color: #FAFAFA;
+  overflow: auto;
+  margin-top: 5px;
 }
 .slider {
   position: relative;
@@ -2890,14 +2931,6 @@ header {
 .slider p {
   padding: 10px 0;
   color: #777;
-}
-.view-cc-wp {
-  position: absolute;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: -1000px;
 }
 footer {
   position: fixed;
@@ -2944,27 +2977,29 @@ footer ul li {
 .sub-footer {
   background-color: #ffffff;
 }
-.sub-footer ul li h3 {
-  font-size: 1.2em;
-}
-.sub-footer ul li i {
-  display: none;
+.sub-footer i {
   position: absolute;
   background: url(/images/arrow-white.png);
   background-repeat: no-repeat;
   background-position: center 0;
-}
-.sub-footer ul li.active {
-  color: #d29829;
-  position: relative;
-}
-.sub-footer ul li.active i {
   display: inline-block;
   width: 20px;
   height: 10px;
   top: -10px;
-  left: 50%;
+  left: 0;
   margin-left: -10px;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.sub-footer ul li h3 {
+  font-size: 1.2em;
+}
+.sub-footer ul li.active {
+  color: #d29829;
+  position: relative;
 }
 .sub-footer ul.has-double-li li {
   width: 50%;

@@ -9,7 +9,7 @@
     tpl = require('../../../tpl/page.tpl');
     ThisView = Backbone.View.extend({
       initialize: function() {
-        this.$el.addClass('view-cc-wp animated slow');
+        this.$el.addClass('animated slow');
         this.common = common;
         return this.render();
       },
@@ -38,9 +38,10 @@
           });
           return self.common.resetContainer();
         }, 300);
-        return this.$el.css({
+        this.$el.css({
           top: 0
         }).addClass('slideInUp');
+        return this.common.removeWrapper();
       },
       button: function() {
         return alert(33333);

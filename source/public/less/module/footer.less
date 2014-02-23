@@ -60,29 +60,33 @@ footer {
   background-color: #ffffff;
   //visibility: hidden;
 
+  i {
+    position: absolute;
+    background: url(/images/arrow-white.png);
+    background-repeat: no-repeat;
+    background-position: center 0;
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    top: -10px;
+    left: 0;
+    margin-left: -10px;
+
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+
   ul li {
     h3 {
       font-size: 1.2em;
-    }
-    i {
-      display: none;
-      position: absolute;
-      background: url(/images/arrow-white.png);
-      background-repeat: no-repeat;
-      background-position: center 0;
     }
   }
   ul li.active {
     color: #d29829;
     position: relative;
-    i {
-      display: inline-block;
-      width: 20px;
-      height: 10px;
-      top: -10px;
-      left: 50%;
-      margin-left: -10px;
-    }
   }
 
   ul.has-double-li li {

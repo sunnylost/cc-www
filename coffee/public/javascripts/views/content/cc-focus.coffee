@@ -7,7 +7,7 @@ define (require, exprots, module) ->
   Util = require '../../common/util'
   RES = require '../../common/res'
 
-  tpl = require '../../../tpl/cc-about.tpl'
+  tpl = require '../../../tpl/cc-focus.tpl'
 
   ThisView = Backbone.View.extend
 
@@ -18,11 +18,10 @@ define (require, exprots, module) ->
       'click button': 'button'
 
     render: ->
-      console.log '##class->', @$el.attr 'class'
       @$el.html _.template tpl
       @
 
     button: ->
-      alert 'about'
+      alert 'focus'
 
   module.exports = ThisView
