@@ -13,16 +13,21 @@
         this.common = common;
         return this.render();
       },
-      events: {
-        'click button': 'button'
-      },
       render: function() {
+        var self;
+        self = this;
         this.$el.html(_.template(tpl));
+        this.$el.addClass('focus-bg-1');
         this.common.removeSubBody();
+        setTimeout(function() {
+          var $text;
+          $text = self.$el.find('.animate-text');
+          $text.css({
+            left: 100
+          });
+          return $text.addClass('animated');
+        }, 1000);
         return this;
-      },
-      button: function() {
-        return alert('focus');
       }
     });
     return module.exports = ThisView;

@@ -16,15 +16,17 @@ define (require, exprots, module) ->
       @common = common
       @render()
 
-    events:
-      'click button': 'button'
-
     render: ->
+      self = @
       @$el.html _.template tpl
+      @$el.addClass 'focus-bg-1'
       @common.removeSubBody()
+      setTimeout ->
+        $text = self.$el.find('.animate-text')
+        $text.css
+          left: 100
+        $text.addClass 'animated'
+      , 1000
       @
-
-    button: ->
-      alert 'focus'
 
   module.exports = ThisView

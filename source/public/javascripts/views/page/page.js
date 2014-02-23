@@ -61,7 +61,7 @@
         h_s = $('.sub-header').height();
         $('.sub-page').height($(window).height() - h_h - h_s);
         console.log('~~~~', $('.sub-footer').height());
-        return $('.container-in').height($('.sub-page').height() - 80);
+        return $('.container-in').height($('.sub-page').height() - 70);
       },
       renderCreditcloud: function() {
         var ContainerView, containerView, self;

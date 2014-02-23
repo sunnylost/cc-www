@@ -15,9 +15,7 @@ define (require, exprots, module) ->
     initialize: ->
       @common = common
       @render()
-
-    events:
-      'click button': 'button'
+      @bindHover()
 
     render: ->
       self = @
@@ -31,7 +29,32 @@ define (require, exprots, module) ->
       , 1000
       @
 
-    button: ->
-      alert 'about'
+    bindHover: ->
+      #@$el.find('td.ava').hover ->
+      #  if $(@).hasClass 'fli-x'
+      #    $(@).addClass 'animated flipInX'
+      #  else
+      #    $(@).addClass 'animated flipInY'
+      #, ->
+      #  $(@).removeClass 'animated flipInY flipInX'
+
+      @$el.find('td.ava').hover ->
+        self = @
+        if $(@).hasClass 'fli-x'
+          $(@).addClass 'animated flipInX'
+        else
+          $(@).addClass 'animated flipInY'
+
+        $title = $(@).find('h3')
+        $name = $(@).find('p')
+        _content = $title.height() + $name.height()
+        _content = 70
+        margin = ($(@).height() - _content) / 2
+        $title.css marginTop: margin
+        $(self).find('.ava-in').show()
+      , ->
+        self = @
+        $(@).removeClass 'animated flipInY flipInX'
+        $(self).find('.ava-in').fadeOut()
 
   module.exports = ThisView

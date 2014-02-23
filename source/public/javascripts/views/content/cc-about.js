@@ -11,10 +11,8 @@
     ThisView = Backbone.View.extend({
       initialize: function() {
         this.common = common;
-        return this.render();
-      },
-      events: {
-        'click button': 'button'
+        this.render();
+        return this.bindHover();
       },
       render: function() {
         var self;
@@ -31,8 +29,30 @@
         }, 1000);
         return this;
       },
-      button: function() {
-        return alert('about');
+      bindHover: function() {
+        return this.$el.find('td.ava').hover(function() {
+          var $name, $title, margin, self, _content;
+          self = this;
+          if ($(this).hasClass('fli-x')) {
+            $(this).addClass('animated flipInX');
+          } else {
+            $(this).addClass('animated flipInY');
+          }
+          $title = $(this).find('h3');
+          $name = $(this).find('p');
+          _content = $title.height() + $name.height();
+          _content = 70;
+          margin = ($(this).height() - _content) / 2;
+          $title.css({
+            marginTop: margin
+          });
+          return $(self).find('.ava-in').show();
+        }, function() {
+          var self;
+          self = this;
+          $(this).removeClass('animated flipInY flipInX');
+          return $(self).find('.ava-in').fadeOut();
+        });
       }
     });
     return module.exports = ThisView;

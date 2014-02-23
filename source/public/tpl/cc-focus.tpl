@@ -1,4 +1,8 @@
-<p style="text-align: center; padding-top: 50px">
-  BBBBBBB cc-focus-page
-  <button class="orange">test-focus</button>
-</p>
+<div class="animate-text fadeInLeft">
+  <h2 class="h2-focus">专注互联网金融服务</h2>
+  <p>
+    主要团队成员来自华尔街知名金融IT服务机构，具有多年金融数据处理、金融软件开发经验
+  </p>
+  <p>已签约多家开展互联网金融业务的机构，对行业有充分了解和深刻认识</p>
+  <p>注册于苏州，注册资本500万元人民币，办公地点在北京</p>
+</div>
