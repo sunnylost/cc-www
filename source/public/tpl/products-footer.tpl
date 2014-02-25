@@ -1,14 +1,15 @@
 <div class="inner">
+  <i class="footer-arrow"></i>
   <ul>
-    <li class="view-cc active">
+    <li data-view="site" class="active">
       <i></i>
       <h3>网站</h3>
     </li>
-    <li class="view-products">
+    <li data-view="client">
       <i></i>
       <h3>移动客户端</h3>
     </li>
-    <li class="view-customers">
+    <li data-view="operations">
       <i></i>
       <h3>运营</h3>
     </li>

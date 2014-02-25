@@ -203,7 +203,7 @@ section .sub-page {
   }
 }
 
-.focus-bg-1, .tech-bg-1 {
+.focus-bg-1, .tech-bg-1, .site-bg-1, .client-bg-1, .oper-bg-1 {
   background-color: transparent;
   background-position: center center;
   background-repeat: no-repeat;
@@ -218,6 +218,18 @@ section .sub-page {
 // 技术与安全
 .tech-bg-1 {
   background-image: url(/images/cc-tech-1.jpg);
+}
+// 网站
+.site-bg-1 {
+  background-image: url(/images/banners/site-bg-1.jpg);
+}
+// 客户端
+.client-bg-1 {
+  background-image: url(/images/banners/client-bg-1.jpg);
+}
+// 运营
+.oper-bg-1 {
+  background-image: url(/images/banners/oper-bg-1.jpg);
 }
 
 
@@ -276,5 +288,278 @@ section .sub-page {
   .space-100 {
     width: 100%;
     height: 100px;
+  }
+}
+
+// 典型客户
+.evaluate-text {
+  width: 23.5%;
+}
+.evaluate-wrap {
+  width: 66.666666%;
+  height: 100%;
+  margin-left: 33.33333%;
+  background-image: url(/images/banners/customers-bg-1.jpg);
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .video-start {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url(/images/video-icon.png);
+    background-color: transparent;
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    cursor: pointer;
+  }
+}
+
+.partner-wrap {
+  width: 90%;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  overflow-y: auto;
+
+  ul.partner-list{}
+  ul.partner-list li {
+    list-style: none;
+    height: 150px;
+    margin-bottom: 40px;
+    position: relative;
+    background-color: #fff;
+  }
+  ul.partner-list li:first-child {
+    margin-top: 40px;
+  }
+  ul.partner-list li:hover {
+  }
+  ul.partner-list li img {
+    height: 100%;
+  }
+
+  .partner-img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 0;
+    top: 0;
+  }
+  .partner-content {
+    margin-left: 150px;
+    height: 150px;
+
+    .cus-title, .cus-type, .cus-dec {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .cus-title {
+      padding-top: 25px;
+      padding-bottom: 10px;
+    }
+    .cus-type {
+      padding-bottom: 5px;
+      a {
+        color: #6090b1;
+        text-decoration: none;
+        font-size: 13px;
+      }
+      a:hover {
+        color: @red;
+      }
+    }
+    .cus-dec {
+      padding-bottom: 25px;
+      font-size: 13px;
+
+      p {
+        padding-top: 0;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// 更多
+.more-wrap {
+  position: absolute;
+  z-index: 150;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 50, 50, .7);
+  opacity: 0;
+
+  .more-content {
+    position: relative;
+    width: 100%;
+    height: 310px;
+    background: #fff;
+    margin-top: -400px;
+
+    .more-close {
+      position: absolute;
+      z-index: 10;
+      width: 30px;
+      height: 30px;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      background-color: transparent;
+      background-image: url(/images/arrow-light-up.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+    }
+
+    table {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    table tr td {
+      text-align: center;
+    }
+
+    .more-list {
+      padding-top: 50px;
+
+      h2 {
+        font-weight: normal;
+        font-size: 1.8em;
+        margin-bottom: 0;
+      }
+      .title-border {
+        margin-bottom: 22px;
+
+        div {
+          width: 40px;
+          height: 3px;
+          background: #333;
+          margin: 0 auto;
+        }
+      }
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 13px;
+        padding-bottom: 5px;
+        color: #444;
+      }
+      h3 {
+        margin: 0;
+        padding: 0;
+        margin-top: 40px;
+        font-size: 13px;
+        color: #333;
+        .animate-in();
+
+        span {
+          display: inline-block;
+          height: 20px;
+          vertical-align: top;
+          cursor: pointer;
+        }
+        span:first-child {
+          width: 20px;
+          background-image: url(/images/arrow-right.png);
+          background-size: 90%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: transparent;
+        }
+        span:last-child {
+          width: auto;
+          line-height: 20px;
+          padding-left: 10px;
+        }
+        &:hover {
+          color: #d29829;
+          span:first-child {
+            .animate-in(0.3s);
+            background-image: url(/images/arrow-right-grey.png);
+          }
+        }
+      }
+    }
+  }
+}
+
+.more-page {
+  h2.main-title {
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+
+  .detail-content p {
+    padding-bottom: 3px;
+    line-height: 12px;
+    color: #666;
+    font-size: 13px;
+  }
+
+  .sub-title {
+    margin-bottom: 20px;
+    div {
+      max-width: 400px;
+      border: 1px #ddd solid;
+      border-left: none;
+      border-right: none;
+      padding: 5px 10px;
+      margin: 0 auto;
+      margin-top: 70px;
+    }
+  }
+
+  img.map {
+    width: 300px;
+  }
+
+  table.tb-joinus {
+    max-width: 500px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+  table.tb-joinus tr td {
+    padding: 8px 25px;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      height: 20px;
+      line-height: 20px;
+      text-decoration: none;
+      color: #222;
+      font-size: 12px;
+      span {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        vertical-align: top;
+        background-image: url(/images/arrow-right.png);
+        background-size: 80%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+      }
+    }
+    a:hover {
+      .animate-in();
+      color: @red;
+      span {
+        .animate-in(0.3s);
+        background-image: url(/images/arrow-right-grey.png);
+      }
+    }
   }
 }

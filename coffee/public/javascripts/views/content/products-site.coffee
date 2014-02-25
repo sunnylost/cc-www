@@ -8,7 +8,7 @@ define (require, exprots, module) ->
   common = require '../common'
   RES = require '../../common/res'
 
-  tpl = require '../../../tpl/cc-about.tpl'
+  tpl = require '../../../tpl/products-site.tpl'
 
   ThisView = Backbone.View.extend
 
@@ -20,6 +20,7 @@ define (require, exprots, module) ->
     render: ->
       self = @
       @$el.html _.template tpl
+      @$el.addClass 'site-bg-1'
       @common.removeSubBody()
       setTimeout ->
         $text = self.$el.find('.animate-text')

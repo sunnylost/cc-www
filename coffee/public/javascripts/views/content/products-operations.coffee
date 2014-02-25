@@ -8,10 +8,10 @@ define (require, exprots, module) ->
   common = require '../common'
   RES = require '../../common/res'
 
-  tpl = require '../../../tpl/cc-tech.tpl'
-  tpl_a = require '../../../tpl/detail-cc-tech-1.tpl'
-  tpl_b = require '../../../tpl/detail-cc-tech-2.tpl'
-  tpl_c = require '../../../tpl/detail-cc-tech-3.tpl'
+  tpl = require '../../../tpl/products-operations.tpl'
+  tpl_a = require '../../../tpl/detail-products-oper-1.tpl'
+  tpl_b = require '../../../tpl/detail-products-oper-2.tpl'
+  tpl_c = require '../../../tpl/detail-products-oper-3.tpl'
 
   ThisView = Backbone.View.extend
 
@@ -25,7 +25,7 @@ define (require, exprots, module) ->
     render: ->
       self = @
       @$el.html _.template tpl
-      @$el.addClass 'tech-bg-1'
+      @$el.addClass 'oper-bg-1'
       @common.removeSubBody()
       setTimeout ->
         $text = self.$el.find('.animate-text')
@@ -43,6 +43,7 @@ define (require, exprots, module) ->
 
     renderDetail: (view) ->
       $section = $('.sub-section')
+      $detail = $section.find('.detail-page')
       switch view
         when 'tech-a'
         then _tpl = tpl_a

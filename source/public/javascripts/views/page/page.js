@@ -79,19 +79,27 @@
         }, 300);
       },
       renderProducts: function() {
-        var self;
+        var ContainerView, containerView, self;
         self = this;
+        ContainerView = require('../content/products-site');
+        containerView = new ContainerView({
+          el: $('.sub-body:last')
+        });
         return setTimeout(function() {
           var FooterView, footerView;
           FooterView = require('../footer/products-footer');
           return footerView = new FooterView({
-            el: $('footer.sub-footer')
+            el: $('.sub-footer')
           });
         }, 300);
       },
       renderCustomers: function() {
-        var self;
+        var ContainerView, containerView, self;
         self = this;
+        ContainerView = require('../content/customers-evaluate');
+        containerView = new ContainerView({
+          el: $('.sub-body:last')
+        });
         return setTimeout(function() {
           var FooterView, footerView;
           FooterView = require('../footer/customers-footer');

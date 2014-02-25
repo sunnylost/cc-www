@@ -8,10 +8,10 @@ define (require, exprots, module) ->
   common = require '../common'
   RES = require '../../common/res'
 
-  tpl = require '../../../tpl/cc-tech.tpl'
-  tpl_a = require '../../../tpl/detail-cc-tech-1.tpl'
-  tpl_b = require '../../../tpl/detail-cc-tech-2.tpl'
-  tpl_c = require '../../../tpl/detail-cc-tech-3.tpl'
+  tpl = require '../../../tpl/customers-evaluate.tpl'
+  tpl_a = require '../../../tpl/detail-customers-1.tpl'
+  tpl_b = require '../../../tpl/detail-customers-2.tpl'
+  tpl_c = require '../../../tpl/detail-customers-3.tpl'
 
   ThisView = Backbone.View.extend
 
@@ -25,15 +25,22 @@ define (require, exprots, module) ->
     render: ->
       self = @
       @$el.html _.template tpl
-      @$el.addClass 'tech-bg-1'
       @common.removeSubBody()
       setTimeout ->
         $text = self.$el.find('.animate-text')
         $text.css
-          left: 100
+          left: '5%'
         $text.addClass 'animated'
       , 1000
+      @bindActions()
+
       @
+
+    bindActions: ->
+      @$el.find('.video-start').hover ->
+        $(@).addClass 'animated pulse'
+      , ->
+        $(@).removeClass 'animated pulse'
 
     detail: (e) ->
       $this = $(e.currentTarget)
@@ -43,14 +50,15 @@ define (require, exprots, module) ->
 
     renderDetail: (view) ->
       $section = $('.sub-section')
+      $detail = $section.find('.detail-page')
       switch view
-        when 'tech-a'
+        when 'a'
         then _tpl = tpl_a
 
-        when 'tech-b'
+        when 'b'
         then _tpl = tpl_b
 
-        when 'tech-c'
+        when 'c'
         then _tpl = tpl_c
       $section.append _tpl
       $('.detail-page').addClass 'animated moveInRight'

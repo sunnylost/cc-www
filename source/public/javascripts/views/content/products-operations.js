@@ -7,10 +7,10 @@
     Util = require('../../common/util');
     common = require('../common');
     RES = require('../../common/res');
-    tpl = require('../../../tpl/cc-tech.tpl');
-    tpl_a = require('../../../tpl/detail-cc-tech-1.tpl');
-    tpl_b = require('../../../tpl/detail-cc-tech-2.tpl');
-    tpl_c = require('../../../tpl/detail-cc-tech-3.tpl');
+    tpl = require('../../../tpl/products-operations.tpl');
+    tpl_a = require('../../../tpl/detail-products-oper-1.tpl');
+    tpl_b = require('../../../tpl/detail-products-oper-2.tpl');
+    tpl_c = require('../../../tpl/detail-products-oper-3.tpl');
     ThisView = Backbone.View.extend({
       initialize: function() {
         this.common = common;
@@ -23,7 +23,7 @@
         var self;
         self = this;
         this.$el.html(_.template(tpl));
-        this.$el.addClass('tech-bg-1');
+        this.$el.addClass('oper-bg-1');
         this.common.removeSubBody();
         setTimeout(function() {
           var $text;
@@ -43,8 +43,9 @@
         return this.renderDetail(view);
       },
       renderDetail: function(view) {
-        var $section, _tpl;
+        var $detail, $section, _tpl;
         $section = $('.sub-section');
+        $detail = $section.find('.detail-page');
         switch (view) {
           case 'tech-a':
             _tpl = tpl_a;

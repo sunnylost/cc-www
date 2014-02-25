@@ -80,13 +80,19 @@ define (require, exports, module) ->
     renderProducts: ->
       self = @
 
+      ContainerView = require '../content/products-site'
+      containerView = new ContainerView el: $('.sub-body:last')
+
       setTimeout ->
         FooterView = require '../footer/products-footer'
-        footerView = new FooterView el: $('footer.sub-footer')
+        footerView = new FooterView el: $('.sub-footer')
       , 300
 
     renderCustomers: ->
       self = @
+
+      ContainerView = require '../content/customers-evaluate'
+      containerView = new ContainerView el: $('.sub-body:last')
 
       setTimeout ->
         FooterView = require '../footer/customers-footer'

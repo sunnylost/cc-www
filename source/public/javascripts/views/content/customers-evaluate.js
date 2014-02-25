@@ -7,10 +7,10 @@
     Util = require('../../common/util');
     common = require('../common');
     RES = require('../../common/res');
-    tpl = require('../../../tpl/cc-tech.tpl');
-    tpl_a = require('../../../tpl/detail-cc-tech-1.tpl');
-    tpl_b = require('../../../tpl/detail-cc-tech-2.tpl');
-    tpl_c = require('../../../tpl/detail-cc-tech-3.tpl');
+    tpl = require('../../../tpl/customers-evaluate.tpl');
+    tpl_a = require('../../../tpl/detail-customers-1.tpl');
+    tpl_b = require('../../../tpl/detail-customers-2.tpl');
+    tpl_c = require('../../../tpl/detail-customers-3.tpl');
     ThisView = Backbone.View.extend({
       initialize: function() {
         this.common = common;
@@ -23,17 +23,24 @@
         var self;
         self = this;
         this.$el.html(_.template(tpl));
-        this.$el.addClass('tech-bg-1');
         this.common.removeSubBody();
         setTimeout(function() {
           var $text;
           $text = self.$el.find('.animate-text');
           $text.css({
-            left: 100
+            left: '5%'
           });
           return $text.addClass('animated');
         }, 1000);
+        this.bindActions();
         return this;
+      },
+      bindActions: function() {
+        return this.$el.find('.video-start').hover(function() {
+          return $(this).addClass('animated pulse');
+        }, function() {
+          return $(this).removeClass('animated pulse');
+        });
       },
       detail: function(e) {
         var $this, self, view;
@@ -43,16 +50,17 @@
         return this.renderDetail(view);
       },
       renderDetail: function(view) {
-        var $section, _tpl;
+        var $detail, $section, _tpl;
         $section = $('.sub-section');
+        $detail = $section.find('.detail-page');
         switch (view) {
-          case 'tech-a':
+          case 'a':
             _tpl = tpl_a;
             break;
-          case 'tech-b':
+          case 'b':
             _tpl = tpl_b;
             break;
-          case 'tech-c':
+          case 'c':
             _tpl = tpl_c;
         }
         $section.append(_tpl);
