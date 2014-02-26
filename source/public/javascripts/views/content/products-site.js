@@ -12,7 +12,7 @@
       initialize: function() {
         this.common = common;
         this.render();
-        return this.bindHover();
+        return this.bindActions();
       },
       render: function() {
         var self;
@@ -30,30 +30,24 @@
         }, 1000);
         return this;
       },
-      bindHover: function() {
-        return this.$el.find('td.ava').hover(function() {
-          var $name, $title, margin, self, _content;
-          self = this;
-          if ($(this).hasClass('fli-x')) {
-            $(this).addClass('animated flipInX');
-          } else {
-            $(this).addClass('animated flipInY');
-          }
-          $title = $(this).find('h3');
-          $name = $(this).find('p');
-          _content = $title.height() + $name.height();
-          _content = 70;
-          margin = ($(this).height() - _content) / 2;
-          $title.css({
-            marginTop: margin
-          });
-          return $(self).find('.ava-in').show();
-        }, function() {
-          var self;
-          self = this;
-          $(this).removeClass('animated flipInY flipInX');
-          return $(self).find('.ava-in').fadeOut();
-        });
+      bindActions: function() {
+        var $body, arr;
+        console.log(333333);
+        $body = $('.sub-body');
+        arr = [RES.banner_pro_1, RES.banner_pro_2, RES.banner_pro_3, RES.banner_pro_4];
+        return setTimeout(function() {
+          var currentImg, len;
+          len = arr.length;
+          currentImg = 0;
+          return window.bgTimmer = setInterval(function() {
+            console.log(currentImg);
+            if (currentImg + 1 === len) {
+              return currentImg = 0;
+            } else {
+              return currentImg++;
+            }
+          }, 3000);
+        }, 1000);
       }
     });
     return module.exports = ThisView;

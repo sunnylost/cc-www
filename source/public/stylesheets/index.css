@@ -3067,6 +3067,11 @@ section .sub-page {
 .sub-body {
   width: 100%;
   height: 100%;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
 }
 .animate-text {
   position: absolute;

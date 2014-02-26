@@ -15,7 +15,7 @@ define (require, exprots, module) ->
     initialize: ->
       @common = common
       @render()
-      @bindHover()
+      @bindActions()
 
     render: ->
       self = @
@@ -30,24 +30,25 @@ define (require, exprots, module) ->
       , 1000
       @
 
-    bindHover: ->
-      @$el.find('td.ava').hover ->
-        self = @
-        if $(@).hasClass 'fli-x'
-          $(@).addClass 'animated flipInX'
-        else
-          $(@).addClass 'animated flipInY'
-
-        $title = $(@).find('h3')
-        $name = $(@).find('p')
-        _content = $title.height() + $name.height()
-        _content = 70
-        margin = ($(@).height() - _content) / 2
-        $title.css marginTop: margin
-        $(self).find('.ava-in').show()
-      , ->
-        self = @
-        $(@).removeClass 'animated flipInY flipInX'
-        $(self).find('.ava-in').fadeOut()
+    bindActions: ->
+      console.log 333333
+      $body = $('.sub-body')
+      arr = [
+        RES.banner_pro_1
+        RES.banner_pro_2
+        RES.banner_pro_3
+        RES.banner_pro_4
+      ]
+      setTimeout ->
+        len = arr.length
+        currentImg = 0
+        window.bgTimmer = setInterval ->
+          console.log currentImg
+          if currentImg+1 == len
+            currentImg = 0
+          else
+            currentImg++
+        , 3000
+      , 1000
 
   module.exports = ThisView
