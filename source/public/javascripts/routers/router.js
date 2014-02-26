@@ -35,7 +35,7 @@
           $tips.addClass('animated fadeOutUp');
           setTimeout(function() {
             $tips.removeClass('animated fadeInUp fadeOutUp');
-            $tips.text('呃，网络好慢，再等等看~');
+            $tips.text('载入文件较多，再等等看~');
             return $tips.addClass('animated fadeInUp');
           }, 200);
           return setTimeout(function() {

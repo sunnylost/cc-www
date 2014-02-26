@@ -40,7 +40,7 @@ define (require, exports, module) ->
         $tips.addClass 'animated fadeOutUp'
         setTimeout ->
           $tips.removeClass 'animated fadeInUp fadeOutUp'
-          $tips.text '呃，网络好慢，再等等看~'
+          $tips.text '载入文件较多，再等等看~'
           $tips.addClass 'animated fadeInUp'
         , 200
         setTimeout ->
