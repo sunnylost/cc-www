@@ -26,14 +26,8 @@ define (require, exprots, module) ->
       self = @
       @$el.html _.template tpl
       @common.removeSubBody()
-      setTimeout ->
-        $text = self.$el.find('.animate-text')
-        $text.css
-          left: '10%'
-        $text.addClass 'animated'
-      , 1000
+      @common.addAnimateText @$el
       @bindActions()
-
       @
 
     bindActions: ->

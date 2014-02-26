@@ -1,4 +1,4 @@
-<div class="animate-text fadeInLeft">
+<div class="animate-text">
   <h2 class="h2-tech">技术与安全</h2>
   <ul>
     <li data-view="tech-a">

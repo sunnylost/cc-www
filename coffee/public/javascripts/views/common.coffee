@@ -50,3 +50,14 @@ define (require, exports, module) ->
       reset_height = $(window).height() - (h_header + h_subHeader + h_subFooter)
       $container.height reset_height
 
+    addAnimateText: (el, callback) ->
+      setTimeout ->
+        $text = el.find('.animate-text')
+        $text.removeClass 'fadeInLeft'
+        setTimeout ->
+          $text.addClass 'animated fadeInLeft'
+        , 1
+        if callback
+          callback()
+      , 1000
+

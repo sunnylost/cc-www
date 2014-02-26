@@ -77,6 +77,19 @@
         h_subFooter = $('.sub-footer').height();
         reset_height = $(window).height() - (h_header + h_subHeader + h_subFooter);
         return $container.height(reset_height);
+      },
+      addAnimateText: function(el, callback) {
+        return setTimeout(function() {
+          var $text;
+          $text = el.find('.animate-text');
+          $text.removeClass('fadeInLeft');
+          setTimeout(function() {
+            return $text.addClass('animated fadeInLeft');
+          }, 1);
+          if (callback) {
+            return callback();
+          }
+        }, 1000);
       }
     };
   });

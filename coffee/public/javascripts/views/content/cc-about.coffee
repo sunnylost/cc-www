@@ -21,17 +21,20 @@ define (require, exprots, module) ->
       self = @
       @$el.html _.template tpl
       @common.removeSubBody()
-      setTimeout ->
-        $text = self.$el.find('.animate-text')
-        $text.css
-          left: '10%'
-        $text.addClass 'animated'
-      , 1000
+      @common.addAnimateText @$el
       @
 
     bindHover: ->
+      timmer = null
       @$el.find('td.ava').hover ->
         self = @
+        w = $(@).width()
+        h = $(@).height()
+
+        $(@).removeClass 'animated'
+        $(@).removeClass 'flipInY'
+        $(@).removeClass 'flipInX'
+
         if $(@).hasClass 'fli-x'
           $(@).addClass 'animated flipInX'
         else
@@ -43,10 +46,20 @@ define (require, exprots, module) ->
         _content = 70
         margin = ($(@).height() - _content) / 2
         $title.css marginTop: margin
+
+        # set ava-in position
+        #$(self).find('.ava-in').css
+        #  width: w
+        #  height: h
+
         $(self).find('.ava-in').show()
       , ->
         self = @
-        $(@).removeClass 'animated flipInY flipInX'
-        $(self).find('.ava-in').fadeOut()
+        timmer = setTimeout ->
+          $(self).removeClass 'animated'
+          $(self).removeClass 'flipInY'
+          $(self).removeClass 'flipInX'
+          $(self).find('.ava-in').fadeOut()
+        , 200
 
   module.exports = ThisView

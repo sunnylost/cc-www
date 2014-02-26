@@ -1,4 +1,4 @@
-<div class="animate-text fadeInLeft">
+<div class="animate-text">
   <h2>我们的团队</h2>
   <p>以前人们在四月开始收获</p>
   <p>躺在高高的谷堆上面笑着</p>

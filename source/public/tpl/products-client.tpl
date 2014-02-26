@@ -1,4 +1,4 @@
-<div class="animate-text fadeInLeft">
+<div class="animate-text">
   <h2 class="h2-focus">
     CREDITMARKET<br>
     移动信审设备

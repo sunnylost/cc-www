@@ -1,4 +1,4 @@
-<div class="animate-text fadeInLeft">
+<div class="animate-text">
   <h2>
     CREDITMARKET<br>
     线上债权销售平台

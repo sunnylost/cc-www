@@ -1,4 +1,4 @@
-<div class="animate-text fadeInLeft evaluate-text">
+<div class="animate-text evaluate-text">
   <h2 class="h2-tech">客户</h2>
   <p>我们拥有很多行业内重量级客户，拥有良好的合作关系，客户反馈甚好。</p>
   <ul>

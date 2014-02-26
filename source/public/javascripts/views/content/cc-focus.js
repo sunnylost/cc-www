@@ -19,14 +19,7 @@
         this.$el.html(_.template(tpl));
         this.$el.addClass('focus-bg-1');
         this.common.removeSubBody();
-        setTimeout(function() {
-          var $text;
-          $text = self.$el.find('.animate-text');
-          $text.css({
-            left: '10%'
-          });
-          return $text.addClass('animated');
-        }, 1000);
+        this.common.addAnimateText(this.$el);
         return this;
       }
     });

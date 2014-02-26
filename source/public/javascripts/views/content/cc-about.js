@@ -19,20 +19,20 @@
         self = this;
         this.$el.html(_.template(tpl));
         this.common.removeSubBody();
-        setTimeout(function() {
-          var $text;
-          $text = self.$el.find('.animate-text');
-          $text.css({
-            left: '10%'
-          });
-          return $text.addClass('animated');
-        }, 1000);
+        this.common.addAnimateText(this.$el);
         return this;
       },
       bindHover: function() {
+        var timmer;
+        timmer = null;
         return this.$el.find('td.ava').hover(function() {
-          var $name, $title, margin, self, _content;
+          var $name, $title, h, margin, self, w, _content;
           self = this;
+          w = $(this).width();
+          h = $(this).height();
+          $(this).removeClass('animated');
+          $(this).removeClass('flipInY');
+          $(this).removeClass('flipInX');
           if ($(this).hasClass('fli-x')) {
             $(this).addClass('animated flipInX');
           } else {
@@ -50,8 +50,12 @@
         }, function() {
           var self;
           self = this;
-          $(this).removeClass('animated flipInY flipInX');
-          return $(self).find('.ava-in').fadeOut();
+          return timmer = setTimeout(function() {
+            $(self).removeClass('animated');
+            $(self).removeClass('flipInY');
+            $(self).removeClass('flipInX');
+            return $(self).find('.ava-in').fadeOut();
+          }, 200);
         });
       }
     });

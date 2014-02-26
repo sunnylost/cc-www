@@ -24,14 +24,7 @@
         self = this;
         this.$el.html(_.template(tpl));
         this.common.removeSubBody();
-        setTimeout(function() {
-          var $text;
-          $text = self.$el.find('.animate-text');
-          $text.css({
-            left: '10%'
-          });
-          return $text.addClass('animated');
-        }, 1000);
+        this.common.addAnimateText(this.$el);
         this.bindActions();
         return this;
       },

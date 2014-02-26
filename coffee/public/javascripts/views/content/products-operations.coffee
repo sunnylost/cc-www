@@ -27,12 +27,7 @@ define (require, exprots, module) ->
       @$el.html _.template tpl
       @$el.addClass 'oper-bg-1'
       @common.removeSubBody()
-      setTimeout ->
-        $text = self.$el.find('.animate-text')
-        $text.css
-          left: '10%'
-        $text.addClass 'animated'
-      , 1000
+      @common.addAnimateText @$el
       @
 
     detail: (e) ->

@@ -1,4 +1,4 @@
-<div class="animate-text fadeInLeft">
+<div class="animate-text">
   <h2 class="h2-focus">专注互联网金融服务</h2>
   <p>
     主要团队成员来自华尔街知名金融IT服务机构，具有多年金融数据处理、金融软件开发经验
