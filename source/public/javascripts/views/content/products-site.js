@@ -11,8 +11,7 @@
     ThisView = Backbone.View.extend({
       initialize: function() {
         this.common = common;
-        this.render();
-        return this.bindActions();
+        return this.render();
       },
       render: function() {
         var self;
@@ -24,23 +23,25 @@
           var $text;
           $text = self.$el.find('.animate-text');
           $text.css({
-            left: 100
+            left: '10%'
           });
           return $text.addClass('animated');
         }, 1000);
         return this;
       },
       bindActions: function() {
-        var $body, arr;
+        var $body, arr, self;
         console.log(333333);
+        self = this;
         $body = $('.sub-body');
-        arr = [RES.banner_pro_1, RES.banner_pro_2, RES.banner_pro_3, RES.banner_pro_4];
+        arr = [RES.banner_pro_1, RES.home, RES.banner_a, RES.banner_b];
         return setTimeout(function() {
           var currentImg, len;
           len = arr.length;
           currentImg = 0;
           return window.bgTimmer = setInterval(function() {
             console.log(currentImg);
+            self.$el.attr('style', "background-image: url(" + arr[currentImg] + ")");
             if (currentImg + 1 === len) {
               return currentImg = 0;
             } else {

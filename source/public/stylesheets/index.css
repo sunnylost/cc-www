@@ -2753,6 +2753,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: #fff;
   z-index: 9999;
 }
+#landing .landing-tips {
+  position: absolute;
+  z-index: 10;
+  width: 300px;
+  height: auto;
+  left: 50%;
+  top: 43%;
+  margin: -90px 0 0 -150px;
+  padding: 10px 0;
+  text-align: center;
+  color: #555;
+  font-size: 13px;
+  opacity: 0;
+}
 #landing .landing-status {
   width: 240px;
   height: 100px;
@@ -2923,17 +2937,13 @@ header {
   position: absolute;
   z-index: 10;
   width: 300px;
-  height: 100%;
+  height: auto;
   left: -400px;
-  top: 0;
+  top: 30%;
 }
 .s-header .inner .bar-left span.arrow-text h2 {
-  margin-top: 35%;
   padding-bottom: 30px;
   font-size: 2.0em;
-}
-.s-header .inner .bar-left span.arrow-text h2.h2-focus {
-  margin-top: 45%;
 }
 .s-header .inner .bar-left span.arrow-text p {
   color: #444;
@@ -3038,11 +3048,11 @@ section .sub-page {
 .container-in {
   overflow: auto;
   margin: 0 auto;
-  max-width: 1280px;
   position: relative;
 }
 .slider {
   position: relative;
+  height: 100%;
 }
 .slider .slider-title {
   position: absolute;
@@ -3051,7 +3061,7 @@ section .sub-page {
   width: 400px;
   min-height: 200px;
   left: 10%;
-  top: 15%;
+  top: 25%;
   -vendor-animation-duration: 3s;
   -vendor-animation-delay: 2s;
   -vendor-animation-iteration-count: infinite;
@@ -3077,17 +3087,13 @@ section .sub-page {
   position: absolute;
   z-index: 10;
   width: 300px;
-  height: 100%;
+  height: auto;
   left: -400px;
-  top: 0;
+  top: 30%;
 }
 .animate-text h2 {
-  margin-top: 35%;
   padding-bottom: 30px;
   font-size: 2.0em;
-}
-.animate-text h2.h2-focus {
-  margin-top: 45%;
 }
 .animate-text p {
   color: #444;
@@ -3278,9 +3284,6 @@ section .sub-page {
 .detail-page .space-100 {
   width: 100%;
   height: 100px;
-}
-.evaluate-text {
-  width: 23.5%;
 }
 .evaluate-wrap {
   width: 66.666666%;

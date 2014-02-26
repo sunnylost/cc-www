@@ -31,6 +31,28 @@ define (require, exports, module) ->
 
       counter = 0
 
+      # 载入时间过长时提示用户
+      $tips = $('.landing-tips')
+      setTimeout ->
+        $tips.addClass 'animated fadeInUp'
+      , 5000
+      setTimeout ->
+        $tips.addClass 'animated fadeOutUp'
+        setTimeout ->
+          $tips.removeClass 'animated fadeInUp fadeOutUp'
+          $tips.text '呃，网络好慢，再等等看~'
+          $tips.addClass 'animated fadeInUp'
+        , 200
+        setTimeout ->
+          $tips.addClass 'animated fadeOutUp'
+          setTimeout ->
+            $tips.removeClass 'animated fadeInUp fadeOutUp'
+            $tips.text '看样子你得刷新页面重新加载一次了 >_<'
+            $tips.addClass 'animated fadeInUp'
+          , 200
+        , 10000
+      , 10000
+
       for key of @res
         prefix = '?v=' + new Date().getTime()
         url = self.res[key] #+ prefix

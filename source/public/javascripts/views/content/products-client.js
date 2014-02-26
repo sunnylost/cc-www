@@ -23,7 +23,7 @@
           var $text;
           $text = self.$el.find('.animate-text');
           $text.css({
-            left: 100
+            left: '10%'
           });
           return $text.addClass('animated');
         }, 1000);

@@ -20,13 +20,33 @@
         'page-:view*': 'page'
       },
       loadRes: function(callback) {
-        var counter, key, prefix, self, url, _results;
+        var $tips, counter, key, prefix, self, url, _results;
         self = this;
         if (this.resLoaded) {
           callback();
           return;
         }
         counter = 0;
+        $tips = $('.landing-tips');
+        setTimeout(function() {
+          return $tips.addClass('animated fadeInUp');
+        }, 5000);
+        setTimeout(function() {
+          $tips.addClass('animated fadeOutUp');
+          setTimeout(function() {
+            $tips.removeClass('animated fadeInUp fadeOutUp');
+            $tips.text('呃，网络好慢，再等等看~');
+            return $tips.addClass('animated fadeInUp');
+          }, 200);
+          return setTimeout(function() {
+            $tips.addClass('animated fadeOutUp');
+            return setTimeout(function() {
+              $tips.removeClass('animated fadeInUp fadeOutUp');
+              $tips.text('看样子你得刷新页面重新加载一次了 >_<');
+              return $tips.addClass('animated fadeInUp');
+            }, 200);
+          }, 10000);
+        }, 10000);
         _results = [];
         for (key in this.res) {
           prefix = '?v=' + new Date().getTime();

@@ -15,7 +15,7 @@ define (require, exprots, module) ->
     initialize: ->
       @common = common
       @render()
-      @bindActions()
+      #@bindActions()
 
     render: ->
       self = @
@@ -25,25 +25,29 @@ define (require, exprots, module) ->
       setTimeout ->
         $text = self.$el.find('.animate-text')
         $text.css
-          left: 100
+          left: '10%'
         $text.addClass 'animated'
       , 1000
       @
 
     bindActions: ->
       console.log 333333
+      self = @
       $body = $('.sub-body')
       arr = [
         RES.banner_pro_1
-        RES.banner_pro_2
-        RES.banner_pro_3
-        RES.banner_pro_4
+        RES.home
+        RES.banner_a
+        RES.banner_b
       ]
       setTimeout ->
         len = arr.length
         currentImg = 0
         window.bgTimmer = setInterval ->
           console.log currentImg
+          #self.$el.css 'background-image', arr[currentImg
+          self.$el.attr 'style', "background-image: url(#{arr[currentImg]})"
+          #self.$el.html arr[currentImg]
           if currentImg+1 == len
             currentImg = 0
           else
