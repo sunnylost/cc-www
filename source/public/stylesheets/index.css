@@ -3000,6 +3000,7 @@ header {
 }
 .sub-header {
   position: fixed;
+  position: absolute;
   z-index: 20;
   padding-bottom: 0px;
   background-color: #fff;
@@ -3562,6 +3563,7 @@ section .sub-page {
 }
 footer {
   position: fixed;
+  position: absolute;
   z-index: 100;
   width: 100%;
   bottom: 0;
@@ -3607,7 +3609,7 @@ footer ul li {
 .sub-footer {
   background-color: #ffffff;
 }
-.sub-footer i {
+.sub-footer i.footer-arrow {
   position: absolute;
   z-index: 20;
   background: url(/images/arrow-white.png);
@@ -3618,7 +3620,6 @@ footer ul li {
   height: 10px;
   top: -10px;
   left: 0;
-  margin-left: -10px;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   -ms-transition-duration: 0.5s;
