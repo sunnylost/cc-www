@@ -1,8 +1,8 @@
+
 /*
 Module dependencies.
 App Interface
-*/
-
+ */
 
 (function() {
   var app, detail, express, http, path, routes;

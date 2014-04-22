@@ -3,12 +3,15 @@
   <p>我们拥有很多行业内重量级客户，拥有良好的合作关系，客户反馈甚好。</p>
   <ul>
     <li data-view="a">
+      <i class="ie-icon"></i>
       客户一
     </li>
     <li data-view="b">
+      <i class="ie-icon"></i>
       客户二
     </li>
     <li data-view="c">
+      <i class="ie-icon"></i>
       客户三
     </li>
   </ul>

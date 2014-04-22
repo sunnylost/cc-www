@@ -1,7 +1,7 @@
+
 /*
 search page
-*/
-
+ */
 
 (function() {
   exports.index = function(req, res) {

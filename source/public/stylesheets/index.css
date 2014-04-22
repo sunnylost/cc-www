@@ -3561,6 +3561,9 @@ section .sub-page {
   transition-duration: 0.3s;
   background-image: url(/images/arrow-right-grey.png);
 }
+.ie-icon {
+  display: none;
+}
 footer {
   position: fixed;
   position: absolute;

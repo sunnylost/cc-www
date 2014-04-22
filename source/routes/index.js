@@ -1,7 +1,7 @@
+
 /*
 GET home page.
-*/
-
+ */
 
 (function() {
   exports.index = function(req, res) {
