@@ -24,3 +24,14 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/arrow-right-grey.png', sizingMethod='scale')";
   left: -15px;
 }
+
+/* 
+  fix display:inline-block
+*/
+
+.sub-header ul li,
+footer ul li {
+  display: inline;
+  zoom: 1;
+  width: 33%;
+}

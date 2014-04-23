@@ -12,7 +12,7 @@ seajs.config
     [".js", ".js?" + new Date().getTime()]
   ]
 
-if !console
-  console =
+if !window.console
+  window.console =
     log: (x)->
       x

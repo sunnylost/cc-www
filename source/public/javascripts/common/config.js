@@ -1,6 +1,4 @@
 (function() {
-  var console;
-
   seajs.config({
     charset: 'utf-8',
     alias: {
@@ -14,8 +12,8 @@
     map: [[".js", ".js?" + new Date().getTime()]]
   });
 
-  if (!console) {
-    console = {
+  if (!window.console) {
+    window.console = {
       log: function(x) {
         return x;
       }
